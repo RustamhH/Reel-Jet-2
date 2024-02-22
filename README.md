@@ -1,4 +1,4 @@
-# Reel Jet
+# Reel Jet 2
 
 
 ****
@@ -81,15 +81,15 @@ If you want to see settings of this app ,click on Settings button from navbar.
 ![Alt text](SupportImages/image-14.png)
 
 
-If you have new movie you can add this movie to for you page.
+If you want to see other users' personal movies , For You Page is where you find it.  
 
 ![Alt text](SupportImages/image15.png)
 
-If you want add your movie you must add from settings from upload video.
+If you want add your personal movie to the app , click on Upload Video
 
 ![Alt text](SupportImages/image-16.png)
 
-You can filter movies from movie list page.
+You can filter movies from Movie List Page.
 
 ![Alt text](SupportImages/image-17.png)
 
@@ -97,11 +97,11 @@ You can change database from servers section.
 
 ![Alt text](SupportImages/image-18.png)
 
-You can change program language from RegistrationPages and settings between azerbaijani and english.
+You can change program language from Registration Pages and Settings between azerbaijani and english.
 
 ![Alt text](SupportImages/image-19.png)
 
-You can delete cache datas and logout. Deleting cache datas delete your historylists from web and block recommendations.
+You can delete cache datas and also log out. Deleting cache datas delete your historylists from web and block recommendations.
 Deleting cache datas can give you big amount of empty disk space (50-70)mb.
 
 ![Alt text](SupportImages/image-20.png)
@@ -109,5 +109,5 @@ Deleting cache datas can give you big amount of empty disk space (50-70)mb.
 
 If you have any questions or need further assistance, please don't hesitate to contact us.
 
-Contact Email: hasanabdullazad@gmail.com
 Contact Email: rustamh2006@gmail.com
+Contact Email: hasanabdullazad@gmail.com
