@@ -1,0 +1,20 @@
+﻿ReelJet.Application
+
+
+winexe
+C#
+.cs
+C:\Users\hasan\WPF Projects\Final Projects\ReelJet 2\ReelJet.Application\obj\Release\net6.0-windows\
+ReelJet.Application
+none
+false
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+C:\Users\hasan\WPF Projects\Final Projects\ReelJet 2\ReelJet.Application\App.xaml
+27-534874181
+3-952675391
+63-899386599
+233-1735024153
+ResourceDictionaries\AnimatedTextBlockRD.xaml;ResourceDictionaries\ButtonWithBookmarkRD.xaml;ResourceDictionaries\CustomButtonRD.xaml;ResourceDictionaries\CustomToolTipRD.xaml;ResourceDictionaries\ImageKeysRD.xaml;Utilities\BindableTextBox.xaml;Utilities\CustomPasswordBox.xaml;Utilities\SearchBox.xaml;Views\MainView.xaml;Views\MoviePages\ForYouPage.xaml;Views\MoviePages\MovieListPage.xaml;Views\MoviePages\MoviePreviewPage.xaml;Views\MoviePages\VideoPlayerPage.xaml;Views\MoviePages\VideoPlayerPages\FullScreenPage.xaml;Views\MoviePages\VideoPlayerPages\MinimizeScreenPage.xaml;Views\NavigationBarPages\HistoryPage.xaml;Views\NavigationBarPages\SettingsPage.xaml;Views\NavigationBarPages\SettingsPages\AccountPage.xaml;Views\NavigationBarPages\SettingsPages\UploadVideoPage.xaml;Views\NavigationBarPages\UserAccountPage.xaml;Views\NavigationBarPages\WatchListPage.xaml;Views\RegistrationPages\ForgotPasswordPage.xaml;Views\RegistrationPages\LoadingPage.xaml;Views\RegistrationPages\LoginPage.xaml;Views\RegistrationPages\SignUpPages\MainSignUpPage.xaml;Views\RegistrationPages\SignUpPages\RegistrationPage.xaml;Views\RegistrationPages\SignUpPages\ValidationPage.xaml;
+
+False
+

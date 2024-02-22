@@ -1,0 +1,46 @@
+﻿<Page x:Class="Reel_Jet.Views.NavigationBarPages.SettingsPages.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ut="clr-namespace:Reel_Jet.Utilities"
+      xmlns:database="clr-namespace:ReelJet.Application.Models.DatabaseNamespace"
+      xmlns:local="clr-namespace:Reel_Jet.Views.NavigationBarPages.SettingsPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AccountPage">
+
+    <Grid>
+        <Grid Margin="10">
+
+            <TextBlock FontFamily="/Static Files/Fonts/Quicksand/#Quicksand" Text="{Binding EditProfileText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Foreground="White" Margin="20" FontWeight="Bold"></TextBlock>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100 -20 0 0">
+
+                <Border Width="150" Height="150" CornerRadius="150" Margin="0 0 0 50" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding Avatar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                    </Border.Background>
+                    <Button Style="{StaticResource EditButtonForAccount}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding EditPfpCommand}"></Button>
+                </Border>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                    <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 0 70 0" Width="300" Foreground="White" Height="40" PlaceHolder="{Binding NameText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding EditedUser.Name, UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                    <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="300" Height="40" Foreground="White"  PlaceHolder="{Binding SurnameText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding EditedUser.Surname, UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                </StackPanel>
+
+                <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" IsEnabled="False" Margin="0 20 0 0" Foreground="White" Height="40" PlaceHolder="Email" Text="{Binding EditedUser.Email, UpdateSourceTrigger=LostFocus,Mode=TwoWay}" ></ut:BindableTextBox>
+                <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 20 0 0" Foreground="White" Height="40" PlaceHolder="{Binding PhoneNumberText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding EditedUser.PhoneNumber, UpdateSourceTrigger=LostFocus,Mode=TwoWay}" ></ut:BindableTextBox>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 0 70 0" Width="300" Foreground="White" Height="40" PlaceHolder="{Binding AgeText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding EditedUser.Age, UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                    <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="300" Height="40" Foreground="White"  PlaceHolder="{Binding UsernameText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding EditedUser.Username, UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                </StackPanel>
+
+                <ut:CustomPasswordBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 20 0 0" Foreground="White" Height="40" PlaceHolder="{Binding PasswordText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Password="{Binding EditedUser.Password, UpdateSourceTrigger=LostFocus,Mode=TwoWay}" ></ut:CustomPasswordBox>
+
+                <Button FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Content="{Binding ConfirmChangesText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="35" Margin="0 50 0 0" Foreground="White" Command="{Binding ConfirmChangeCommand}"/>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

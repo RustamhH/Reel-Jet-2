@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Storyboard x:Key="FadeInAndMoveAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="Width"
+                            From="0" To="500" Duration="0:0:1.6"/>
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                            From="-1200" To="-570" Duration="0:0:1.6"/>
+        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1.6"/>
+    </Storyboard>
+
+    <Style TargetType="TextBlock" x:Key="AnimatedTextBlockStyle">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform x:Name="translateTransform"/>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <StaticResource ResourceKey="FadeInAndMoveAnimation"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+    <Storyboard x:Key="FadedLine">
+        <DoubleAnimation Storyboard.TargetProperty="Width" From="-800" To="1930" Duration="0:0:6" />
+        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1"  Duration="0:0:1" />
+    </Storyboard>
+
+</ResourceDictionary>

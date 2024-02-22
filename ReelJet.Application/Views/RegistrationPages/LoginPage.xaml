@@ -1,0 +1,85 @@
+﻿<Page x:Class="Reel_Jet.Views.RegistrationPages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ma="http://materialdesigninxaml.net/winfx/xaml/themes" 
+      xmlns:ut="clr-namespace:Reel_Jet.Utilities" 
+      xmlns:database="clr-namespace:ReelJet.Application.Models.DatabaseNamespace"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:local="clr-namespace:Reel_Jet.Views.RegistrationPages"
+      mc:Ignorable="d"
+      d:DesignHeight="1080" d:DesignWidth="1920" Background="#303042"
+      Title="LoginPageView">
+
+    <Grid>
+        <Grid Background="#000000">
+            <Image Source="{StaticResource SignInBackground}" Stretch="UniformToFill" Opacity="0.1"/>
+            <ComboBox Name="ComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" 
+                   ma:HintAssist.Hint="LNG" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Foreground="White">
+
+                <ComboBoxItem>
+                    <ComboBoxItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{StaticResource AzeFlagImg}" Height="25" Margin="0 -4 10 0" Stretch="UniformToFill"></Image>
+                            <TextBlock Text="AZE"></TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <ComboBoxItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{StaticResource UKFlagImg}" Height="25" Margin="0 -4 10 0" Stretch="UniformToFill"></Image>
+                            <TextBlock Text="ENG"></TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding LanguageSelectionChangedCommand}" 
+                            CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, UpdateSourceTrigger=PropertyChanged}"
+                        />
+
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </Grid>
+
+        <Border Width="800"  Height="450" CornerRadius="8"  Background="#1F1F2B">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="87*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Image Source="{StaticResource LoginPageImg}" Stretch="UniformToFill"/>
+                </Grid>
+
+                <StackPanel Grid.Column="1"  Background="#1F1F2B" Margin="40 60 27 10">
+
+                    <StackPanel>
+                        <TextBlock FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding WelcomeBackText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="#FCFBFD" FontSize="25" FontWeight="Medium"/>
+                        <TextBlock FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding SignInToYourAccountText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Foreground="#6B6B77" FontSize="12"/>
+                    </StackPanel>
+
+                    <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 70 0 0" BorderBrush="White" Height="40" Foreground="#6B6B77" PlaceHolder="Email" Text="{Binding NewUser.Email,UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
+                    <ut:CustomPasswordBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Margin="0 10 0 0" BorderBrush="White" Height="40" Foreground="#6B6B77" PlaceHolder="{Binding PasswordText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Password="{Binding NewUser.Password, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
+
+                    <StackPanel>
+                        <TextBlock Margin="0 20 0 20" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding ForgotPasswordText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Foreground="#6B6B77" FontSize="10" Height="19" MouseDown="ForgotPassword_MouseDown"/>
+                        <Button Content="{Binding SignInText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Height="35" Foreground="#FCFBFD" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Command="{Binding SignInCommand}"/>
+
+                        <StackPanel Margin="0 15" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding DontHaveAnAccountText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Foreground="#FCFBFD" FontSize="12" Height="19"/>
+                            <TextBlock Margin="5 0" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Foreground="Red" Text="{Binding SignUpText,Source={x:Static database:Database.CurrentLanguageControl},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TextDecorations="Underline" MouseDown="TextBlock_MouseDown"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

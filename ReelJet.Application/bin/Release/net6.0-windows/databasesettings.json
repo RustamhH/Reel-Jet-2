@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "Sql": "Server=tcp:reeljet.ddns.net,1433;User Id=SuperAdmin;Password=SuperAdmin;Database=ReelJet;Trust Server Certificate=True;"
+  }
+}

@@ -1,0 +1,131 @@
+﻿<Page x:Class="Reel_Jet.Views.MoviePages.MovieListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ma="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ut="clr-namespace:Reel_Jet.Utilities"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:database="clr-namespace:ReelJet.Application.Models.DatabaseNamespace"
+      xmlns:local="clr-namespace:Reel_Jet.Views.MoviePages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920" Background="#1F1F2B"
+      Title="MovieListPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="#12121A">
+
+            <Button Margin="0 60 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationWatchListButton}" Command="{Binding WatchListPgButtonCommand}"/>
+            <Button Margin="0 110 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationHistoryButton}" Command="{Binding HistoryPgButtonCommand}"/>
+            <Button Margin="0 160 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationForYouButton}" Command="{Binding ForYouPgButtonCommand}"/>
+            <Button Margin="0 0 0 70" VerticalAlignment="Bottom" Style="{StaticResource NavigationSettingsButton}" Command="{Binding SettingsPgButtonCommand}"/>
+            <Button Margin="0 0 0 20" VerticalAlignment="Bottom" Style="{StaticResource NavigationProfileButton}" Command="{Binding ProfilePgButtonCommand}"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <ut:SearchBox x:Name="SearchFilm" PlaceHolder="{Binding SearchText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="500">
+                    <ut:SearchBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=SearchFilm, Path=content}"/>
+                    </ut:SearchBox.InputBindings>
+                </ut:SearchBox>
+
+                <ComboBox 
+                    Width="170" FontSize="12" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"
+                    Foreground="White" HorizontalAlignment="Right" Margin="0 0 30 10"
+                    
+                    ma:HintAssist.Hint="{Binding FilterMoviesText , Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding FilterSelectionChangedCommand}" 
+                            CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+
+                    <ComboBoxItem Content="{Binding PopularText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Black"></ComboBoxItem>
+                    <ComboBoxItem Content="{Binding NowPlayingText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Black"></ComboBoxItem>
+                    <ComboBoxItem Content="{Binding UpcomingText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Black"></ComboBoxItem>
+                    <ComboBoxItem Content="{Binding TopRatedText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Black"></ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <ListView Margin="60 0 0 0" ItemsSource="{Binding Movies}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="206" Margin="15" Background="#12121A" >
+                                <Image Source="{Binding Poster}" MaxWidth="206" Height="300"/>
+                                <Border Background="#1a1a1a" Width="206" Height="120"  VerticalAlignment="Bottom">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0 5 0 5">
+                                            <Image Source="{StaticResource StarImg}" Margin="10 0 10 0" Width="10" Height="10"></Image>
+                                            <TextBlock Text="{Binding imdbRating}"   Margin="0 0 110 0"  FontSize="11" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                            <TextBlock Text="{Binding Runtime}"      Margin="0 0 0 0"  FontSize="11" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                                            <TextBlock Text="{Binding Title}" Margin="10 0 5 0" FontSize="13" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                            <TextBlock Text="(" FontSize="13" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                            <TextBlock Text="{Binding Year}" FontSize="13" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                            <TextBlock Text=")" FontSize="13" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand"></TextBlock>
+                                        </StackPanel>
+
+                                        <Button Style="{StaticResource ButtonForWatchList}" Command="{Binding DataContext.AddToWatchListCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}" CommandParameter="{Binding}" Width="160" Height="30" Margin="0 0 0 7" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" HorizontalAlignment="Center" Foreground="#38b6ff"></Button>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource PlayTrailerButton}" Margin="0 0 70 0" Command="{Binding DataContext.WatchTrailerFromListCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}" CommandParameter="{Binding}"></Button>
+
+                                            <Image Source="{StaticResource InfoImg}" Width="20" Height="20">
+                                                <Image.ToolTip>
+                                                    <ToolTip Style="{StaticResource CustomToolTipStyle}" Placement="Mouse" MaxWidth="400">
+                                                        <TextBlock TextWrapping="Wrap" FontSize="10" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Background="#12121A"  Foreground="White" Padding="5" Text="{Binding Plot}"/>
+                                                    </ToolTip>
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" 
+                                   CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}, UpdateSourceTrigger=PropertyChanged}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </ListView>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Page>

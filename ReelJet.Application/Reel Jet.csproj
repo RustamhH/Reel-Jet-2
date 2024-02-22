@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Reel_Jet</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Static Files\Fonts\QuickSand\Quicksand-Bold.ttf" />
+    <None Remove="Static Files\Fonts\QuickSand\Quicksand-Light.ttf" />
+    <None Remove="Static Files\Fonts\QuickSand\Quicksand-Medium.ttf" />
+    <None Remove="Static Files\Fonts\QuickSand\Quicksand-Regular.ttf" />
+    <None Remove="Static Files\Fonts\QuickSand\Quicksand-SemiBold.ttf" />
+    <None Remove="Static Files\Fonts\Sonny Gothic\SonnyGothic-UltraBlack.ttf" />
+    <None Remove="Static Files\Images\account.png" />
+    <None Remove="Static Files\Images\added.png" />
+    <None Remove="Static Files\Images\cog.png" />
+    <None Remove="Static Files\Images\edit.png" />
+    <None Remove="Static Files\Images\history.png" />
+    <None Remove="Static Files\Images\imdb_top_250.jpg" />
+    <None Remove="Static Files\Images\info.png" />
+    <None Remove="Static Files\Images\LoadingImage.jpg" />
+    <None Remove="Static Files\Images\lock.png" />
+    <None Remove="Static Files\Images\MaleUserProfile.png" />
+    <None Remove="Static Files\Images\minimize.png" />
+    <None Remove="Static Files\Images\movie %281%29.ico" />
+    <None Remove="Static Files\Images\MovieIcon.png" />
+    <None Remove="Static Files\Images\no-poster.png" />
+    <None Remove="Static Files\Images\play.png" />
+    <None Remove="Static Files\Images\playvideohistory.png" />
+    <None Remove="Static Files\Images\plus.png" />
+    <None Remove="Static Files\Images\ReelJet Logo 1.png" />
+    <None Remove="Static Files\Images\SignUp Logo.jpg" />
+    <None Remove="Static Files\Images\star.png" />
+    <None Remove="Static Files\Images\WatchListIcon.png" />
+    <None Remove="Static Files\Images\watchmovie.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.50" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Static Files\Fonts\QuickSand\Quicksand-Bold.ttf" />
+    <Resource Include="Static Files\Fonts\QuickSand\Quicksand-Light.ttf" />
+    <Resource Include="Static Files\Fonts\QuickSand\Quicksand-Medium.ttf" />
+    <Resource Include="Static Files\Fonts\QuickSand\Quicksand-Regular.ttf" />
+    <Resource Include="Static Files\Fonts\QuickSand\Quicksand-SemiBold.ttf" />
+    <Resource Include="Static Files\Fonts\Sonny Gothic\SonnyGothic-UltraBlack.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Static Files\Images\account.png" />
+    <Resource Include="Static Files\Images\added.png" />
+    <Resource Include="Static Files\Images\cog.png" />
+    <Resource Include="Static Files\Images\edit.png" />
+    <Resource Include="Static Files\Images\history.png" />
+    <Resource Include="Static Files\Images\info.png" />
+    <Resource Include="Static Files\Images\lock.png" />
+    <Resource Include="Static Files\Images\MaleUserProfile.png" />
+    <Resource Include="Static Files\Images\minimize.png" />
+    <Resource Include="Static Files\Images\play.png" />
+    <Resource Include="Static Files\Images\movie (1).ico" />
+    <Resource Include="Static Files\Images\MovieIcon.png" />
+    <Resource Include="Static Files\Images\no-poster.png" />
+    <Resource Include="Static Files\Images\playvideohistory.png" />
+    <Resource Include="Static Files\Images\plus.png" />
+    <Resource Include="Static Files\Images\star.png" />
+    <Resource Include="Static Files\Images\WatchListIcon.png" />
+    <Resource Include="Static Files\Images\imdb_top_250.jpg" />
+    <Resource Include="Static Files\Images\LoadingImage.jpg" />
+    <Resource Include="Static Files\Images\ReelJet Logo 1.png" />
+    <Resource Include="Static Files\Images\SignUp Logo.jpg" />
+    <Resource Include="Static Files\Images\watchmovie.png" />
+  </ItemGroup>
+
+</Project>

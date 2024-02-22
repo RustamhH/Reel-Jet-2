@@ -1,0 +1,34 @@
+﻿<Page x:Class="Reel_Jet.Views.LoadingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Reel_Jet.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="LoadingPage">
+
+    <Grid>
+        <Image Source="{StaticResource LoadingPageImg}" Stretch="UniformToFill"/>
+        <StackPanel Margin="70 230 0 0">
+            <TextBlock 
+                FontFamily="/Static Files/Fonts/Sonny Gothic/#Sonny Gothic"  
+                Text="REEL" Margin="0 0 0 -92" FontSize="170" Foreground="White" VerticalAlignment="Center" Style="{StaticResource AnimatedTextBlockStyle}"></TextBlock>
+            <TextBlock FontFamily="/Static Files/Fonts/Sonny Gothic/#Sonny Gothic"  Text="JET" FontSize="170" Foreground="White" VerticalAlignment="Center" Style="{StaticResource AnimatedTextBlockStyle}"/>
+        </StackPanel>
+
+        <Rectangle x:Name="progressBar" Width="0" Height="5" Fill="#78333E" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 0 0 40">
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="translateTransform"/>
+            </Rectangle.RenderTransform>
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <StaticResource ResourceKey="FadedLine"/>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
+
+    </Grid>
+</Page>

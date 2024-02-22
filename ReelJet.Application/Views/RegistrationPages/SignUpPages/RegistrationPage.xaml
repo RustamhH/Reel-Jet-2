@@ -1,0 +1,67 @@
+﻿<Page x:Class="Reel_Jet.Views.RegistrationPages.SignUpPages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ut="clr-namespace:Reel_Jet.Utilities"
+      xmlns:local="clr-namespace:Reel_Jet.Views.RegistrationPages"
+      xmlns:database="clr-namespace:ReelJet.Application.Models.DatabaseNamespace"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistrationPage">
+
+    <Grid>
+
+        <StackPanel Margin="20 8 8 8">
+            <TextBlock FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding RegistrationText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Foreground="White" Margin="20 10 0 0"></TextBlock>
+            <Border Background="#ed1c24" BorderThickness="1" Height="5" Width="24" Margin="-405 0 0 50"/>
+
+            <StackPanel Orientation="Horizontal">
+                <ut:BindableTextBox PlaceHolder="{Binding NameText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="163" Margin="20 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Text="{Binding newUser.Name,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" />
+                <ut:BindableTextBox PlaceHolder="{Binding SurnameText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="163" Margin="97 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Text="{Binding newUser.Surname,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="NameTxtBoxTip" Width="163" Margin="20 0 0 0"/>
+                <TextBlock Name="SurnameTxtBoxTip" Width="163" Margin="97 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <ut:BindableTextBox PlaceHolder="{Binding UsernameText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="163" Margin="20 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Text="{Binding newUser.Username,UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                <ut:BindableTextBox PlaceHolder="{Binding AgeText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Width="163" Margin="97 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Text="{Binding newUser.Age,UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="UsernameTxtBoxTip" Width="163" Margin="20 0 0 0"/>
+                <TextBlock Name="AgeTxtBoxTip" Width="163" Margin="97 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" PlaceHolder="Email" Width="163" Margin="20 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Text="{Binding newUser.Email,UpdateSourceTrigger=LostFocus,Mode=TwoWay}" />
+                <ut:BindableTextBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" PlaceHolder="{Binding PhoneNumberText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="163"  Margin="97 0 0 0" Background="Transparent" Foreground="#6B6B77" BorderBrush="White" Text="{Binding newUser.PhoneNumber,UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="EmailTxtBoxTip" Width="163" Margin="20 0 0 0"/>
+                <TextBlock Name="PasswordTxtBoxTip" Width="163" Margin="97 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <ut:CustomPasswordBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" PlaceHolder="{Binding PasswordText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="163" Margin="20 0 0 0" Background="Transparent" BorderBrush="White" Foreground="#6B6B77" Password="{Binding newUser.Password,UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+                <ut:CustomPasswordBox FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" PlaceHolder="{Binding ConfirmYourPasswordText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="163"  Margin="97 0 0 0" Background="Transparent" Foreground="#6B6B77" BorderBrush="White" Password="{Binding ConfirmPassword,UpdateSourceTrigger=LostFocus,Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="RegistrationCodeTxtBoxTip" Width="163" Margin="20 0 0 0"/>
+                <TextBlock Name="ConfirmTxtBoxTip" Width="163" Margin="97 0 0 0"/>
+            </StackPanel>
+
+            <Button FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Content="{Binding SignUpText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="30" Height="35" FontSize="15" Foreground="White" Command="{Binding SignUpCommand}"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Text="{Binding AlreadyHaveAnAccountText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="11" Foreground="White"></TextBlock>
+                <TextBlock Margin="5 0"  FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" Foreground="Red" Text="{Binding SignInText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextDecorations="Underline" MouseDown="TextBlock_MouseDown"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

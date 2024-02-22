@@ -1,0 +1,156 @@
+﻿<Page x:Class="Reel_Jet.Views.NavigationBarPages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ut="clr-namespace:Reel_Jet.Utilities"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+      xmlns:ma="http://materialdesigninxaml.net/winfx/xaml/themes" 
+      xmlns:database="clr-namespace:ReelJet.Application.Models.DatabaseNamespace"
+      xmlns:local="clr-namespace:Reel_Jet.Views.NavigationBarPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920" Background="#1F1F2B"
+      Title="SettingsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="#12121A">
+
+            <Button Margin="0 60 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationWatchListButton}" Command="{Binding WatchListPgButtonCommand}"/>
+            <Button Margin="0 110 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationHistoryButton}" Command="{Binding HistoryPgButtonCommand}"/>
+            <Button Margin="0 160 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationMovieListButton}" Command="{Binding MovieListPageCommand}"/>
+            <Button Margin="0 210 0 0" VerticalAlignment="Top" Style="{StaticResource NavigationForYouButton}" Command="{Binding ForYouPageCommand}"/>
+            <Button Margin="0 0 0 70" VerticalAlignment="Bottom" Style="{StaticResource NavigationSettingsButton}"/>
+            <Button Margin="0 0 0 20" VerticalAlignment="Bottom" Style="{StaticResource NavigationProfileButton}" Command="{Binding ProfilePgButtonCommand}"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ComboBox Name="ComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" 
+                    ma:HintAssist.Hint="LNG"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Foreground="White">
+
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource AzeFlagImg}" Height="25" Margin="0 -4 10 0" Stretch="UniformToFill"></Image>
+                                <TextBlock Text="AZE"></TextBlock>
+                            </StackPanel>
+                        </ComboBoxItem.Content>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <ComboBoxItem.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource UKFlagImg}" Height="25" Margin="0 -4 10 0" Stretch="UniformToFill"></Image>
+                                <TextBlock Text="ENG"></TextBlock>
+                            </StackPanel>
+                        </ComboBoxItem.Content>
+                    </ComboBoxItem>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding LanguageSelectionChangedCommand}"
+                            CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ComboBox}}, UpdateSourceTrigger=PropertyChanged}"
+                        />
+
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="200 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+
+                    <StackPanel VerticalAlignment="Top">
+
+                        <TextBlock Text="Settings" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" FontSize="45"/>
+
+                        <Button FontWeight="Medium" HorizontalContentAlignment="Left" FontSize="20" Foreground="White" Background="Transparent" BorderBrush="Transparent" Height="50" Margin="0 60 0 0" Command="{Binding AccountPgButtonCommand}">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="25" Width="25" Source="{StaticResource SettingsAccountImg}" Margin="-12 0 15 0"/>
+                                    <TextBlock Text="{Binding AccountText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" FontSize="23" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        
+                        <Button FontWeight="Medium" HorizontalContentAlignment="Left" FontSize="20" Foreground="White" Background="Transparent" BorderBrush="Transparent" Height="50"  Command="{Binding UploadPersonalMoviePgButtonCommand}">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="25" Width="25" Source="{StaticResource UploadPersonalMovie}" Margin="-12 0 15 0"/>
+                                    <TextBlock Text="{Binding UploadVideoText, Source={x:Static database:Database.CurrentLanguageControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" FontSize="23" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Bottom" Margin="0 0 0 49">
+
+                        <Button FontWeight="Medium" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" HorizontalContentAlignment="Left" FontSize="20" Foreground="White" Background="Transparent" BorderBrush="Transparent" Height="50" Margin="0 20 0 0" Command="{Binding ClearCacheDataButtonCommand}">
+
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="25" Width="25" Source="{StaticResource ClearCacheImg}" Margin="-10 0 15 0"/>
+                                    <TextBlock Text="{Binding ClearCacheText, Source={x:Static database:Database.CurrentLanguageControl}}" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" FontSize="20" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button FontWeight="Medium" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" HorizontalContentAlignment="Left" FontSize="20" Foreground="White" Background="Transparent" BorderBrush="Transparent" Height="50" Margin="0 20 0 0" Command="{Binding LogOutCommand}">
+
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="25" Width="25" Source="{StaticResource LogOutImg}" Margin="-10 0 15 0"/>
+                                    <TextBlock Text="{Binding LogOutText, Source={x:Static database:Database.CurrentLanguageControl}}" Foreground="White" FontFamily="/Static Files/Fonts/QuickSand/#Quicksand" FontSize="20" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Frame Name="SettingsPageFrame" Grid.Column="1">
+
+                </Frame>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

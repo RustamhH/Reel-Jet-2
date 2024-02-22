@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReelJet.Database", "ReelJet.Database\ReelJet.Database.csproj", "{7C9B622F-13DF-4A9D-BED9-91D06BFEE502}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReelJet.Application", "ReelJet.Application\ReelJet.Application.csproj", "{B13F93AD-F6D4-4D82-9530-8F3866BD1247}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Reel Jet", "Reel Jet\Reel Jet.vdproj", "{B6E69C1A-5E86-4943-9DCB-37AA22FB1302}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C9B622F-13DF-4A9D-BED9-91D06BFEE502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9B622F-13DF-4A9D-BED9-91D06BFEE502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9B622F-13DF-4A9D-BED9-91D06BFEE502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9B622F-13DF-4A9D-BED9-91D06BFEE502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13F93AD-F6D4-4D82-9530-8F3866BD1247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13F93AD-F6D4-4D82-9530-8F3866BD1247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13F93AD-F6D4-4D82-9530-8F3866BD1247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13F93AD-F6D4-4D82-9530-8F3866BD1247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E69C1A-5E86-4943-9DCB-37AA22FB1302}.Debug|Any CPU.ActiveCfg = Debug
+		{B6E69C1A-5E86-4943-9DCB-37AA22FB1302}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE3746FB-B090-4837-8AEA-7FA73B89E5E4}
+	EndGlobalSection
+EndGlobal
